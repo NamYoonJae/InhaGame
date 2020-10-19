@@ -1,0 +1,5 @@
+﻿  space.cpp
+d:\visual_studio_community_2015\work\win32space\win32space\space.cpp(75): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\space.cpp(76): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+  Win32Space.vcxproj -> D:\visual_studio_community_2015\work\Win32Space\Debug\Win32Space.exe
+  Win32Space.vcxproj -> D:\visual_studio_community_2015\work\Win32Space\Debug\Win32Space.pdb (Full PDB)

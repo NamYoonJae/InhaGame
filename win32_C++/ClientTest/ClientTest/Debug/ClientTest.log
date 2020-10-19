@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  ClientTest.cpp
+d:\work\clienttest\clienttest\clienttest.cpp(62): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  c:\program files (x86)\windows kits\8.1\include\um\winsock2.h(1850): note: see declaration of 'inet_addr'
+d:\work\clienttest\clienttest\clienttest.cpp(45): warning C4101: 'i': unreferenced local variable
+  ClientTest.vcxproj -> D:\work\ClientTest\Debug\ClientTest.exe
+  ClientTest.vcxproj -> D:\work\ClientTest\Debug\ClientTest.pdb (Full PDB)

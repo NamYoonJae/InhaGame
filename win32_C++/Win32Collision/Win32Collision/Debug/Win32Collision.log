@@ -1,0 +1,21 @@
+﻿  stdafx.cpp
+  cShape.cpp
+d:\work\win32collision\win32collision\cshape.cpp(329): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\cshape.cpp(371): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\cshape.cpp(431): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\cshape.cpp(1048): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\cshape.cpp(1089): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\cshape.cpp(1146): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\cshape.cpp(1793): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\cshape.cpp(1834): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\cshape.cpp(1898): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Win32Collision.cpp
+d:\work\win32collision\win32collision\win32collision.cpp(147): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\win32collision.cpp(200): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\win32collision.cpp(209): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\win32collision.cpp(221): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\work\win32collision\win32collision\win32collision.cpp(110): warning C4101: 'hdc' :참조되지 않은 지역 변수입니다.
+d:\work\win32collision\win32collision\win32collision.cpp(111): warning C4101: 'ps' :참조되지 않은 지역 변수입니다.
+  코드를 생성하고 있습니다...
+  Win32Collision.vcxproj -> D:\work\Win32Collision\Debug\Win32Collision.exe
+  Win32Collision.vcxproj -> D:\work\Win32Collision\Debug\Win32Collision.pdb (Full PDB)

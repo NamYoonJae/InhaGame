@@ -1,0 +1,15 @@
+﻿  Win32Space.cpp
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(166): warning C4244: '=': conversion from 'WPARAM' to 'TCHAR', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(227): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(233): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(243): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(249): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(284): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(287): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(290): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(303): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(311): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(314): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+d:\visual_studio_community_2015\work\win32space\win32space\win32space.cpp(336): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Win32Space.vcxproj -> D:\visual_studio_community_2015\work\Win32Space\x64\Debug\Win32Space.exe
+  Win32Space.vcxproj -> D:\visual_studio_community_2015\work\Win32Space\x64\Debug\Win32Space.pdb (Full PDB)

@@ -1,0 +1,31 @@
+﻿  Nintendo.cpp
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(238): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(492): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(601): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\time.h(505): note: see declaration of 'localtime'
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(741): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(843): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(851): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(859): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1289): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1400): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1038): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1044): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1715): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1833): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1446): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1452): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(2459): warning C4244: '=': conversion from 'time_t' to 'float', possible loss of data
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1899): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(1905): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(2765): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(2818): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+d:\work\nintendo최종\nintendo최종\nintendo.cpp(2946): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+  Nintendo최종.vcxproj -> D:\work\Nintendo최종\Debug\Nintendo최종.exe
+  Nintendo최종.vcxproj -> D:\work\Nintendo최종\Debug\Nintendo최종.pdb (Full PDB)
