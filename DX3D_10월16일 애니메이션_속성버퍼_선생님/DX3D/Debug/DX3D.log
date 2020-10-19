@@ -1,0 +1,4 @@
+﻿  cObjLoad.cpp
+d:\work\dx3d_10월16일 애니메이션_속성버퍼_선생님\dx3d\cobjload.cpp(393): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  DX3D.vcxproj -> D:\work\DX3D_10월16일 애니메이션_속성버퍼_선생님\Debug\DX3D.exe
+  DX3D.vcxproj -> D:\work\DX3D_10월16일 애니메이션_속성버퍼_선생님\Debug\DX3D.pdb (Full PDB)

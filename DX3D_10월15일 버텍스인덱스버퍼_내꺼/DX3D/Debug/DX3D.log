@@ -1,0 +1,49 @@
+﻿  stdafx.cpp
+  DX3D.cpp
+  cAseLoader.cpp
+  cBody.cpp
+  cCamera.cpp
+  cCharacter.cpp
+  cCubeMan.cpp
+  cCubeNode.cpp
+  cCubePC.cpp
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\ccubeman.cpp(34): warning C4316: 'cBody': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cCubeMan.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\ccubeman.cpp(39): warning C4316: 'cHead': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cCubeMan.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\ccubeman.cpp(43): warning C4316: 'cLeftArm': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cCubeMan.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\ccubeman.cpp(48): warning C4316: 'cRightArm': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cCubeMan.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\ccubeman.cpp(53): warning C4316: 'cLeftLeg': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cCubeMan.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\ccubeman.cpp(58): warning C4316: 'cRightLeg': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cCubeMan.cpp)
+  cCubePNT.cpp
+  cDeviceManage.cpp
+  cFrame.cpp
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\caseloader.cpp(239): warning C4316: 'cFrame': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cAseLoader.cpp)
+  cGrid.cpp
+  cGroup.cpp
+  cHead.cpp
+  cLeftArm.cpp
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cgrid.cpp(115): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cGrid.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cgrid.cpp(120): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cGrid.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cgrid.cpp(125): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cGrid.cpp)
+  cLeftLeg.cpp
+  cLight.cpp
+  cMainGame.cpp
+  cMtlTex.cpp
+  cObjLoad.cpp
+  cObjMap.cpp
+  cObject.cpp
+  cObjectManager.cpp
+  cPyramid.cpp
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cmaingame.cpp(56): warning C4244: '=': 'double'에서 'INT'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 cMainGame.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cmaingame.cpp(71): warning C4316: 'cCubePC': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cMainGame.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cmaingame.cpp(74): warning C4316: 'cCubeMan': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다 (소스 파일 컴파일 중 cMainGame.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cmaingame.cpp(65): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (소스 파일 컴파일 중 cMainGame.cpp)
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오. (소스 파일 컴파일 중 cMainGame.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cmaingame.cpp(184): warning C4244: '=': 'DWORD'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 cMainGame.cpp)
+d:\work\dx3d_10월15일 애니메이션_버텍스버퍼_선생님\dx3d\cmaingame.cpp(195): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (소스 파일 컴파일 중 cMainGame.cpp)
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오. (소스 파일 컴파일 중 cMainGame.cpp)
+  cRightArm.cpp
+  cRightLeg.cpp
+  cTextureManager.cpp
+  iMap.cpp
+  DX3D.vcxproj -> D:\work\DX3D_10월15일 애니메이션_버텍스버퍼_선생님\Debug\DX3D.exe
+  DX3D.vcxproj -> D:\work\DX3D_10월15일 애니메이션_버텍스버퍼_선생님\Debug\DX3D.pdb (Full PDB)

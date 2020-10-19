@@ -1,0 +1,4 @@
+﻿  dijkstra.cpp
+d:\visual_studio_community_2015\work\dijkstra\dijkstra\dijkstra.cpp(144): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  dijkstra.vcxproj -> D:\visual_studio_community_2015\work\dijkstra\Debug\dijkstra.exe
+  dijkstra.vcxproj -> D:\visual_studio_community_2015\work\dijkstra\Debug\dijkstra.pdb (Full PDB)

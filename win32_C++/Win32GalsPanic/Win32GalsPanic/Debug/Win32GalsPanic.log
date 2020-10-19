@@ -1,0 +1,6 @@
+﻿  galsPanic.cpp
+d:\work\win32galspanic\win32galspanic\galspanic.cpp(44): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+d:\work\win32galspanic\win32galspanic\galspanic.cpp(120): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+d:\work\win32galspanic\win32galspanic\galspanic.cpp(163): warning C4018: '<': signed/unsigned mismatch
+  Win32GalsPanic.vcxproj -> D:\work\Win32GalsPanic\Debug\Win32GalsPanic.exe
+  Win32GalsPanic.vcxproj -> D:\work\Win32GalsPanic\Debug\Win32GalsPanic.pdb (Full PDB)

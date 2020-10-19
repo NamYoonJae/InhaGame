@@ -1,0 +1,33 @@
+﻿  stdafx.cpp
+  DX3D.cpp
+  cRightLeg.cpp
+  cRightArm.cpp
+  cPyramid.cpp
+  cMainGame.cpp
+d:\dx3d_내꺼\dx3d\cmaingame.cpp(33): warning C4316: 'cCubePC': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+d:\dx3d_내꺼\dx3d\cmaingame.cpp(36): warning C4316: 'cCubeMan': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  cLeftLeg.cpp
+  cLeftArm.cpp
+  cHead.cpp
+  cGrid.cpp
+d:\dx3d_내꺼\dx3d\cgrid.cpp(70): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+d:\dx3d_내꺼\dx3d\cgrid.cpp(75): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+d:\dx3d_내꺼\dx3d\cgrid.cpp(80): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  cDeviceManage.cpp
+  cCubePNT.cpp
+  cCubePC.cpp
+  cCubeNode.cpp
+  cCubeMan.cpp
+d:\dx3d_내꺼\dx3d\ccubeman.cpp(33): warning C4316: 'cBody': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+d:\dx3d_내꺼\dx3d\ccubeman.cpp(38): warning C4316: 'cHead': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+d:\dx3d_내꺼\dx3d\ccubeman.cpp(42): warning C4316: 'cLeftArm': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+d:\dx3d_내꺼\dx3d\ccubeman.cpp(47): warning C4316: 'cRightArm': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+d:\dx3d_내꺼\dx3d\ccubeman.cpp(52): warning C4316: 'cLeftLeg': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+d:\dx3d_내꺼\dx3d\ccubeman.cpp(57): warning C4316: 'cRightLeg': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  cCharacter.cpp
+  cCamera.cpp
+  cBody.cpp
+  코드를 생성하고 있습니다...
+  LINK : D:\DX3D_내꺼\Debug\DX3D.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+  DX3D.vcxproj -> D:\DX3D_내꺼\Debug\DX3D.exe
+  DX3D.vcxproj -> D:\DX3D_내꺼\Debug\DX3D.pdb (Full PDB)

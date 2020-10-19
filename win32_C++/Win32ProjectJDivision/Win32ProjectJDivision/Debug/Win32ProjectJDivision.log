@@ -1,0 +1,5 @@
+﻿  Win32ProjectJDivision.cpp
+d:\work\win32projectjdivision\win32projectjdivision\win32projectjdivision.cpp(384): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+d:\work\win32projectjdivision\win32projectjdivision\win32projectjdivision.cpp(389): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Win32ProjectJDivision.vcxproj -> D:\work\Win32ProjectJDivision\Debug\Win32ProjectJDivision.exe
+  Win32ProjectJDivision.vcxproj -> D:\work\Win32ProjectJDivision\Debug\Win32ProjectJDivision.pdb (Full PDB)
