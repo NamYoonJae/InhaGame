@@ -39,9 +39,9 @@ void cSphere::Update()
 	else if (picked == true)
 	{
 		ZeroMemory(&m_stMtlSphere, sizeof(D3DMATERIAL9));
-		m_stMtlSphere.Ambient = D3DXCOLOR(0.7f, 0.7f, 0.0f, 1.0f);
-		m_stMtlSphere.Diffuse = D3DXCOLOR(20.0f, 0.0f, 0.0f, 1.0f);
-		m_stMtlSphere.Specular = D3DXCOLOR(20.0f, 0.0f, 0.0f, 1.0f);
+		m_stMtlSphere.Ambient = D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f);
+		m_stMtlSphere.Diffuse = D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f);
+		m_stMtlSphere.Specular = D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f);
 	}
 }
 

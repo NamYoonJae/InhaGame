@@ -6,6 +6,7 @@ class cGrid
 {
 private:
 	vector<ST_PC_VERTEX> m_vecVertex;
+	vector<ST_PC_VERTEX> m_vecLineVertex;
 	vector<cPyramid*> m_vecPyramid;
 
 	D3DMATERIAL9 m_matrial;

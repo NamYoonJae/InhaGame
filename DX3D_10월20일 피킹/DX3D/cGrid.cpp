@@ -23,6 +23,7 @@ void cGrid::Setup(int nNumHarfTile, float fInterval)
 
 	float fMax = nNumHarfTile * fInterval;
 	float fMin = -fMax;
+	float fy = 0.1;
 	ST_PC_VERTEX v;
 	
 	for (int i = 1; i <= nNumHarfTile; ++i) 
@@ -32,29 +33,29 @@ void cGrid::Setup(int nNumHarfTile, float fInterval)
 		else
 			v.c = D3DCOLOR_XRGB(128, 128, 128);
 
-		/*
+		
 		//가로
-		v.p = D3DXVECTOR3(fMin, 0, i*fInterval);
-		m_vecVertex.push_back(v);
-		v.p = D3DXVECTOR3(fMax, 0, i*fInterval);
-		m_vecVertex.push_back(v);
+		v.p = D3DXVECTOR3(fMin, fy, i*fInterval);
+		m_vecLineVertex.push_back(v);
+		v.p = D3DXVECTOR3(fMax, fy, i*fInterval);
+		m_vecLineVertex.push_back(v);
 
-		v.p = D3DXVECTOR3(fMin, 0, -i*fInterval);
-		m_vecVertex.push_back(v);
+		v.p = D3DXVECTOR3(fMin, fy, -i*fInterval);
+		m_vecLineVertex.push_back(v);
 		v.p = D3DXVECTOR3(fMax, 0, -i*fInterval);
-		m_vecVertex.push_back(v);
+		m_vecLineVertex.push_back(v);
 
 		//세로
-		v.p = D3DXVECTOR3(i*fInterval, 0, fMin);
-		m_vecVertex.push_back(v);
-		v.p = D3DXVECTOR3(i*fInterval, 0, fMax);
-		m_vecVertex.push_back(v);
+		v.p = D3DXVECTOR3(i*fInterval, fy, fMin);
+		m_vecLineVertex.push_back(v);
+		v.p = D3DXVECTOR3(i*fInterval, fy, fMax);
+		m_vecLineVertex.push_back(v);
 
-		v.p = D3DXVECTOR3(-i*fInterval, 0, fMin);
-		m_vecVertex.push_back(v);
-		v.p = D3DXVECTOR3(-i*fInterval, 0, fMax);
-		m_vecVertex.push_back(v);
-		*/
+		v.p = D3DXVECTOR3(-i*fInterval, fy, fMin);
+		m_vecLineVertex.push_back(v);
+		v.p = D3DXVECTOR3(-i*fInterval, fy, fMax);
+		m_vecLineVertex.push_back(v);
+		
 		
 	}
 
@@ -91,23 +92,19 @@ void cGrid::Setup(int nNumHarfTile, float fInterval)
 		}
 	}
 
-	/*
+	
 	v.c = D3DCOLOR_XRGB(255, 0, 0);
-	v.p = D3DXVECTOR3(fMin, 0, 0); m_vecVertex.push_back(v);
-	v.p = D3DXVECTOR3(fMax, 0, 0); m_vecVertex.push_back(v);
+	v.p = D3DXVECTOR3(fMin, fy, 0); m_vecLineVertex.push_back(v);
+	v.p = D3DXVECTOR3(fMax, fy, 0); m_vecLineVertex.push_back(v);
 
 	v.c = D3DCOLOR_XRGB(0, 255, 0);
-	v.p = D3DXVECTOR3(0, fMin, 0); m_vecVertex.push_back(v);
-	v.p = D3DXVECTOR3(0, fMax, 0); m_vecVertex.push_back(v);
+	v.p = D3DXVECTOR3(0, fMin, 0); m_vecLineVertex.push_back(v);
+	v.p = D3DXVECTOR3(0, fMax, 0); m_vecLineVertex.push_back(v);
 
 	v.c = D3DCOLOR_XRGB(0, 0, 255);
-	v.p = D3DXVECTOR3(0, 0, fMin); m_vecVertex.push_back(v);
-	v.p = D3DXVECTOR3(0, 0, fMax); m_vecVertex.push_back(v);
-	*/
-
-
+	v.p = D3DXVECTOR3(0, fy, fMin); m_vecLineVertex.push_back(v);
+	v.p = D3DXVECTOR3(0, fy, fMax); m_vecLineVertex.push_back(v);
 	
-
 	
 	cPyramid* pPyramid = NULL;
 	D3DXMATRIXA16 matR;
@@ -132,22 +129,25 @@ void cGrid::Setup(int nNumHarfTile, float fInterval)
 	m_matrial.Ambient = D3DXCOLOR(0.0f, 0.0f, 0.5f, 1.0f);
 	m_matrial.Diffuse = D3DXCOLOR(0.0f, 0.0f, 0.5f, 1.0f);
 	m_matrial.Specular = D3DXCOLOR(0.0f, 0.0f, 0.5f, 1.0f);
+
 }
 
 void cGrid::Render()
 {
 	g_pD3DDevice->SetMaterial(&m_matrial);
 	g_pD3DDevice->SetTexture(0, NULL);
-	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, false);
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
 	D3DXMATRIXA16 matI;
 	D3DXMatrixIdentity(&matI);
 	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matI);
 	g_pD3DDevice->SetFVF(ST_PC_VERTEX::FVF);
-	//g_pD3DDevice->DrawPrimitiveUP(D3DPT_LINELIST, m_vecVertex.size() / 2, &m_vecVertex[0], sizeof(ST_PC_VERTEX));
+	g_pD3DDevice->DrawPrimitiveUP(D3DPT_LINELIST, m_vecLineVertex.size() / 2, &m_vecLineVertex[0], sizeof(ST_PC_VERTEX));
 	g_pD3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLELIST, m_vecVertex.size() / 3, &m_vecVertex[0], sizeof(ST_PC_VERTEX));
 	
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, false);
 	for each (auto p in m_vecPyramid)
 		p->Render();
+	
 	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
 
 }

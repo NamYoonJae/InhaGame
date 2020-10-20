@@ -12,11 +12,8 @@ private:
 	D3DXVECTOR3 m_cameraLookAt;
 	D3DXVECTOR3 m_up;
 
-	struct ST_RAY
-	{
-		D3DXVECTOR3 r_Direction;
-		D3DXVECTOR3 r_Origin;
-	};
+	D3DXVECTOR3 m_Direction;
+	D3DXVECTOR3 m_Origin;
 
 public:
 	cPicking();
@@ -29,9 +26,9 @@ public:
 	void WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 
-	ST_RAY RayAtWorldSpace(int nScreenX, int nScreenY);
-	ST_RAY RayAtViewSpace(int nScreenX, int nScreenY);
-	bool IsPicked(cSphere* pSphere, ST_RAY r);
+	cPicking RayAtWorldSpace(int nScreenX, int nScreenY);
+	cPicking RayAtViewSpace(int nScreenX, int nScreenY);
+	bool IsPicked(cSphere* pSphere);
 	
 };
 

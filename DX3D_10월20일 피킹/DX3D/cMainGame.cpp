@@ -78,9 +78,9 @@ void cMainGame::Setup()
 	m_pLight = new cLight;
 	m_pLight->Setup();
 
-	m_pLight->DirectionalLight();
-	m_pLight->SpotLight();
-	m_pLight->PointLight();
+	//m_pLight->DirectionalLight();
+	//m_pLight->SpotLight();
+	//m_pLight->PointLight();
 
 
 	
@@ -144,8 +144,8 @@ void cMainGame::Update()
 	if (m_pCamera)
 		m_pCamera->Update();
 
-	if (m_pLight)
-		m_pLight->Update();
+	//if (m_pLight)
+	//	m_pLight->Update();
 
 
 	if (m_pPicking)

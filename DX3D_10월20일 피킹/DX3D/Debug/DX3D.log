@@ -1,5 +1,7 @@
-﻿  cPicking.cpp
-d:\바탕화면\work\dx3d_10월20일 피킹\dx3d\cpicking.cpp(29): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\바탕화면\work\dx3d_10월20일 피킹\dx3d\cpicking.cpp(47): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월20일 피킹\Debug\DX3D.exe
-  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월20일 피킹\Debug\DX3D.pdb (Full PDB)
+﻿  cGrid.cpp
+c:\users\남윤재\desktop\work\dx3d_10월20일 피킹\dx3d\cgrid.cpp(26): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+c:\users\남윤재\desktop\work\dx3d_10월20일 피킹\dx3d\cgrid.cpp(116): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+c:\users\남윤재\desktop\work\dx3d_10월20일 피킹\dx3d\cgrid.cpp(121): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+c:\users\남윤재\desktop\work\dx3d_10월20일 피킹\dx3d\cgrid.cpp(126): warning C4316: 'cPyramid': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  DX3D.vcxproj -> C:\Users\남윤재\Desktop\work\DX3D_10월20일 피킹\Debug\DX3D.exe
+  DX3D.vcxproj -> C:\Users\남윤재\Desktop\work\DX3D_10월20일 피킹\Debug\DX3D.pdb (Full PDB)

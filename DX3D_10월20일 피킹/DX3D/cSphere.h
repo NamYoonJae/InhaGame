@@ -17,7 +17,5 @@ public:
 	void Setup(float centerZ);
 	void Update();
 	void Render();
-
-
 };
 

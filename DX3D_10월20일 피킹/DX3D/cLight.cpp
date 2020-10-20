@@ -23,11 +23,11 @@ cLight::~cLight()
 void cLight::Setup()
 {
 	stLight.Type = D3DLIGHT_DIRECTIONAL;
-	stLight.Ambient = D3DXCOLOR(0.7F, 0.7F, 0.7F, 1.0F);
-	stLight.Diffuse = D3DXCOLOR(0.7F, 0.7F, 0.7F, 1.0F);
-	stLight.Specular = D3DXCOLOR(0.7F, 0.7F, 0.7F, 1.0F);
+	stLight.Ambient = D3DXCOLOR(1.0F, 1.0F, 1.0F, 1.0F);
+	stLight.Diffuse = D3DXCOLOR(1.0F, 1.0F, 1.0F, 1.0F);
+	stLight.Specular = D3DXCOLOR(1.0F, 1.0F, 1.0F, 1.0F);
 
-	D3DXVECTOR3 vDir(1.0f, 1.0f, 1.0f);
+	D3DXVECTOR3 vDir(1.0f, -1.0f, 1.0f);
 	D3DXVec3Normalize(&vDir, &vDir);
 	stLight.Direction = vDir;
 	g_pD3DDevice->SetLight(0, &stLight);

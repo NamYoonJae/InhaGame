@@ -95,15 +95,6 @@ struct ST_ROT_SAMPLE
 	
 };
 
-struct ST_SPHERE 
-{
-	D3DXVECTOR3 center;
-	float radius;	//구의 반지름 크기
-	bool isPicked;	//선택된건지 구별하고 색깔 부여하기 위해 사용
-
-	ST_SPHERE() : center(0, 0, 0), radius(0.0f), isPicked(false) {}
-};
-
 
 #define Synthesize(varType, varName, funName)\
 protected: varType varName;\
