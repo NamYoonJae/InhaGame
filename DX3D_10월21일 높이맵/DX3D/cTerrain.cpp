@@ -62,35 +62,35 @@ void cTerrain::Setup_Terrian()
 	*/
 
 	ST_PNT_VERTEX v;
+	v.n = D3DXVECTOR3(0, 1, 0);
+	
 	for (float j = 0; j < 256; j++)
 	{
 		for (float i = 0; i < 256; i++)
 		{
-			v.p = D3DXVECTOR3(j + 1, 0, i);
-			v.n = D3DXVECTOR3(0, 1, 0);
-			m_vecVertex.push_back(v);
+			int k = 257 * j + i;
 
-			v.p = D3DXVECTOR3(j, 0, i);
-			v.n = D3DXVECTOR3(0, 1, 0);
-			m_vecVertex.push_back(v);
+			v = m_vecVertex[k];
+			m_vecTriangleVertex.push_back(v);
 
-			v.p = D3DXVECTOR3(j, 0, i + 1);
-			v.n = D3DXVECTOR3(0, 1, 0);
-			m_vecVertex.push_back(v);
+			v= m_vecVertex[k + 1];
+			m_vecTriangleVertex.push_back(v);
 
+			v= m_vecVertex[k + 257];
+			m_vecTriangleVertex.push_back(v);
 
 
-			v.p = D3DXVECTOR3(j + 1, 0, i);
-			v.n = D3DXVECTOR3(0, 1, 0);
-			m_vecVertex.push_back(v);
 
-			v.p = D3DXVECTOR3(j, 0, i + 1);
-			v.n = D3DXVECTOR3(0, 1, 0);
-			m_vecVertex.push_back(v);
 
-			v.p = D3DXVECTOR3(j + 1, 0, i + 1);
-			v.n = D3DXVECTOR3(0, 1, 0);
-			m_vecVertex.push_back(v);
+
+			v = m_vecVertex[k + 1];
+			m_vecTriangleVertex.push_back(v);
+
+			v = m_vecVertex[k + 258];
+			m_vecTriangleVertex.push_back(v);
+
+			v = m_vecVertex[k + 257];
+			m_vecTriangleVertex.push_back(v);
 		}
 	}
 
@@ -103,6 +103,7 @@ void cTerrain::Render_Terrian()
 {
 	g_pD3DDevice->SetTexture(0, m_pTexture);
 	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
+	g_pD3DDevice->SetRenderState(D3DRS_CULLMODE, false);
 	D3DXMATRIXA16 matI;
 	D3DXMatrixIdentity(&matI);
 	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matI);
@@ -113,20 +114,21 @@ void cTerrain::Render_Terrian()
 void cTerrain::SetMap()
 {
 	FILE* fp;
-	fopen_s(&fp, "HeightMapData/HeightMap.raw", "r");
+	fopen_s(&fp, "HeightMapData/HeightMap.raw", "rb");
 	D3DXCreateTextureFromFile(g_pD3DDevice, _T("HeightMapData/terrain.jpg"), &m_pTexture);
+
 	while (true) 
 	{
 		if (feof(fp)) break;
 		ST_PNT_VERTEX hV;
-		for (float i = 0; i < 256; i++) 
+		for (float i = 257; i > 0; i--) 
 		{
-			for (float j = 0; j < 256; j++) 
+			for (float j = 0; j < 257; j++) 
 			{
-				hV.p.x = j / 256;
-				hV.p.y = fgetc(fp);
-				hV.p.z = i / 256;
-				hV.t = D3DXVECTOR2(hV.p.x, hV.p.z);
+				hV.p.x = j;
+				hV.p.y = fgetc(fp) / 10 - 10;
+				hV.p.z = i;
+				hV.t = D3DXVECTOR2(j / 257, i / 257);
 				hV.n = D3DXVECTOR3(0, 1, 0);
 				m_vecVertex.push_back(hV);
 			}
