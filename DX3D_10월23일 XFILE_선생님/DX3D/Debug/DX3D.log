@@ -1,0 +1,4 @@
+﻿  cAllocateHierarchy.cpp
+d:\바탕화면\work\dx3d_10월23일 xfile_선생님\dx3d\callocatehierarchy.cpp(17): warning C4316: 'ST_BONE': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월23일 XFILE_선생님\Debug\DX3D.exe
+  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월23일 XFILE_선생님\Debug\DX3D.pdb (Full PDB)
