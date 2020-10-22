@@ -28,6 +28,9 @@
     <Filter Include="Picking">
       <UniqueIdentifier>{20756dd9-b858-47c9-bdde-27a215be97bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HeightMap">
+      <UniqueIdentifier>{0b3bef7e-16bf-450f-a7a4-2458ded9ed76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -132,6 +135,9 @@
     <ClInclude Include="cRay.h">
       <Filter>Picking</Filter>
     </ClInclude>
+    <ClInclude Include="cHeightMap.h">
+      <Filter>HeightMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -223,6 +229,9 @@
     </ClCompile>
     <ClCompile Include="cRay.cpp">
       <Filter>Picking</Filter>
+    </ClCompile>
+    <ClCompile Include="cHeightMap.cpp">
+      <Filter>HeightMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

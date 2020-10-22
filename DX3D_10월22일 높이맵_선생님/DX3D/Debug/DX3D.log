@@ -1,3 +1,6 @@
-﻿  cCharacter.cpp
-  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월21일 높이맵\Debug\DX3D.exe
-  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월21일 높이맵\Debug\DX3D.pdb (Full PDB)
+﻿  cHeightMap.cpp
+d:\바탕화면\work\dx3d_10월22일 높이맵_선생님\dx3d\cheightmap.cpp(48): warning C4244: '인수': 'int'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\바탕화면\work\dx3d_10월22일 높이맵_선생님\dx3d\cheightmap.cpp(153): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\바탕화면\work\dx3d_10월22일 높이맵_선생님\dx3d\cheightmap.cpp(154): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월22일 높이맵_선생님\Debug\DX3D.exe
+  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월22일 높이맵_선생님\Debug\DX3D.pdb (Full PDB)

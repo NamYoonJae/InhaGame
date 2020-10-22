@@ -37,14 +37,14 @@ void cCharacter::Update(iMap* pMap)
 
 	if (GetKeyState('W') & 0x8000)
 	{
-		//vPosition = vPosition -(m_vDirection * 0.5f);
-		m_vPosition = vPosition - (m_vDirection * 0.2f);
+		vPosition = vPosition -(m_vDirection * 0.5f);
+		//m_vPosition = vPosition - (m_vDirection * 0.2f);
 
 	}
 	if (GetKeyState('S') & 0x8000)
 	{
-		//vPosition = m_vPosition + (m_vDirection * 0.5f);
-		m_vPosition = vPosition + (m_vDirection * 0.2f);
+		vPosition = m_vPosition + (m_vDirection * 0.5f);
+		//m_vPosition = vPosition + (m_vDirection * 0.2f);
 	}
 
 
@@ -59,23 +59,24 @@ void cCharacter::Update(iMap* pMap)
 	m_vDirection = D3DXVECTOR3(0, 0, 1);
 	D3DXVec3TransformNormal(&m_vDirection, &m_vDirection, &matR);
 	float tempY = vPosition.y;
-	/*
+	
 	if (pMap)
 	{
 		if (pMap->GetHeight(vPosition.x, vPosition.y, vPosition.z))
 		{
+			m_vPosition = vPosition;
 			//tempY 이전 좌표
 			//vPosition.y 새로운 높은곳
-			
+			/*
 			if (vPosition.y - tempY < 5 ) 
 			{
 				m_vPosition = vPosition;
 			}
-			
+			*/
 			
 		}
 	}
-	*/
+	
 
 
 	D3DXMatrixTranslation(&matT, m_vPosition.x, m_vPosition.y + 0.9f, m_vPosition.z);

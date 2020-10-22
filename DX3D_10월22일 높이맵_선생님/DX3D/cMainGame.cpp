@@ -13,6 +13,7 @@
 #include "cAseLoader.h"
 #include "cFrame.h"
 #include "cRay.h"
+#include "cHeightMap.h"
 
 
 cMainGame::cMainGame()
@@ -109,6 +110,7 @@ void cMainGame::Setup()
 
 	//Setup_Obj();
 
+	/*
 	{
 		cAseLoader l;
 		m_pRootFrame = l.Load("woman/woman_01_all.ASE");
@@ -117,7 +119,9 @@ void cMainGame::Setup()
 	Setup_MeshObject();
 
 	Setup_PickingObj();
+	*/
 
+	Setup_HeightMap();
 
 	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
 
@@ -162,6 +166,8 @@ void cMainGame::Render()
 	if (m_pCubeMan)
 		m_pCubeMan->Render();
 	
+	if (m_pMap)
+		m_pMap->Render();
 
 	//Draw_Texture();
 	//Obj_Render();
@@ -249,7 +255,7 @@ void cMainGame::Load_Surface()
 	D3DXMatrixScaling(&matS, 0.03f, 0.03f, 0.03f);
 	D3DXMatrixRotationX(&matR, -D3DX_PI / 2.0f);
 	matWorld = matS * matR;
-	m_pMap = new cObjMap("obj", "map_surface.obj", &matWorld);
+	//m_pMap = new cObjMap("obj", "map_surface.obj", &matWorld);
 
 }
 
@@ -392,6 +398,13 @@ void cMainGame::PickingObj_Render()
 	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matWorld);
 	m_pMeshSphere->DrawSubset(0);
 
+}
+
+void cMainGame::Setup_HeightMap()
+{
+	cHeightMap* pMap = new cHeightMap;
+	pMap->Setup("HeightMapData/", "HeightMap.raw", "terrain.jpg");
+	m_pMap = pMap;
 }
 
 /*

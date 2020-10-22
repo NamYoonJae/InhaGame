@@ -72,6 +72,7 @@ public:
 	void Setup_PickingObj();
 	void PickingObj_Render();
 
+	void Setup_HeightMap();
 };
 
 	

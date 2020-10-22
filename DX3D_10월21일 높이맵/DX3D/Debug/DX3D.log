@@ -1,5 +1,2 @@
-﻿  cTerrain.cpp
-c:\users\남윤재\desktop\work\dx3d_10월21일 높이맵\dx3d\cterrain.cpp(71): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\남윤재\desktop\work\dx3d_10월21일 높이맵\dx3d\cterrain.cpp(127): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  DX3D.vcxproj -> C:\Users\남윤재\Desktop\work\DX3D_10월21일 높이맵\Debug\DX3D.exe
-  DX3D.vcxproj -> C:\Users\남윤재\Desktop\work\DX3D_10월21일 높이맵\Debug\DX3D.pdb (Full PDB)
+﻿  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월21일 높이맵\Debug\DX3D.exe
+  DX3D.vcxproj -> D:\바탕화면\work\DX3D_10월21일 높이맵\Debug\DX3D.pdb (Full PDB)
