@@ -53,7 +53,6 @@ private:
 
 	cSkinnedMesh* m_pSkinnedMesh;
 
-
 public:
 	cMainGame();
 	~cMainGame();
