@@ -5,6 +5,7 @@
 cTimerManager::cTimerManager()
 {
 	m_dwLastUpdateTime = GetTickCount();
+
 }
 
 

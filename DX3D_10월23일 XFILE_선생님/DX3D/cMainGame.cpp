@@ -156,6 +156,8 @@ void cMainGame::Update()
 	g_pTimeManager->Update();
 	if (m_pSkinnedMesh)
 		m_pSkinnedMesh->Update();
+
+
 }
 
 void cMainGame::Render()
@@ -224,6 +226,15 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	case WM_RBUTTONDOWN:
 		{
+			static int n = 0;
+			//m_pSkinnedMesh->SetAnimationIndex(++n);
+			m_pSkinnedMesh->SetAnimationIndexBlend(++n);
+			
+			//m_pSkinnedMesh->SetAnimationIndexBlend(4);
+		}
+
+		/*
+		{
 		cRay r = cRay::RayAtWorldSpace(LOWORD(lParam), HIWORD(lParam));
 			for (int i = 0; i < m_vecPlaneVertex.size(); i+=3)
 			{
@@ -235,6 +246,7 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 
 		}
+		*/
 		break;
 
 	}
