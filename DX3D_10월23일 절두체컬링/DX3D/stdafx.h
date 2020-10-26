@@ -49,6 +49,13 @@ extern HWND g_hWnd;
 	return &instance;\
 	}
 
+struct ST_P_VERTEX
+{
+	D3DXVECTOR3 p;
+	enum {FVF = D3DFVF_XYZ};
+};
+
+
 struct ST_PC_VERTEX 
 {
 	D3DXVECTOR3 p;

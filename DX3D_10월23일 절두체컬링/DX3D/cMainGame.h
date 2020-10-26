@@ -56,6 +56,18 @@ private:
 
 	cSphere* m_pSphere;
 	vector<cSphere*> m_vecSphereList;
+
+	D3DXVECTOR3 smallLeftUp;
+	D3DXVECTOR3 smallRightUp;
+	D3DXVECTOR3 smallLeftDown;
+	D3DXVECTOR3 smallRightDown;
+
+	D3DXVECTOR3 bigLeftUp;
+	D3DXVECTOR3 bigRightUp;
+	D3DXVECTOR3 bigLeftDown;
+	D3DXVECTOR3 bigRightDown;
+
+	vector<ST_P_VERTEX> vecFCVertex;
 public:
 	cMainGame();
 	~cMainGame();
@@ -83,6 +95,7 @@ public:
 	void Setup_HeightMap();
 
 	void FrusturnCulling();
+	D3DXMATRIXA16 InvProjView();
 };
 
 	

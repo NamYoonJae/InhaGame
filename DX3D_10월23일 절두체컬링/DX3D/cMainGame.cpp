@@ -218,11 +218,15 @@ void cMainGame::Render()
 	//PickingObj_Render();
 	
 	SkinnedMesh_Render();
-	
+	/*
 	for (int i = 0 ; i < m_vecSphereList.size(); i++) 
 	{
 		m_vecSphereList[i]->Render();
 	}
+	*/
+
+	FrusturnCulling();
+
 
 	g_pD3DDevice->EndScene();
 	g_pD3DDevice->Present(NULL, NULL, NULL, NULL);
@@ -270,7 +274,6 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		}
 		*/
-			FrusturnCulling();
 			
 
 
@@ -480,40 +483,187 @@ void cMainGame::FrusturnCulling()
 {
 	D3DVIEWPORT9 vp;
 	g_pD3DDevice->GetViewport(&vp);
+
+	
 	//가까운 점
-	D3DXVECTOR3 leftUp(0, 0, 0);
-	D3DXVECTOR3 rightUp(vp.Width, 0, 0);
-	D3DXVECTOR3 leftDown(0, vp.Height, 0);
-	D3DXVECTOR3 rightDown(vp.Width, vp.Height, 0);
+	D3DXMATRIXA16 InvResult;
+
+	smallLeftUp = { 0, 0, 0 };
+	InvResult = InvProjView();
+	D3DXVec3TransformCoord(&smallLeftUp, &smallLeftUp, &InvResult);
+
+
+	smallRightUp = { (float)vp.Width, 0, 0 };
+	D3DXVec3TransformCoord(&smallRightUp, &smallRightUp, &InvResult);
+
+
+	smallLeftDown = { 0, (float)vp.Height, 0 };
+	D3DXVec3TransformCoord(&smallLeftDown, &smallLeftDown, &InvResult);
+
+
+	smallRightDown = { (float)vp.Width, (float)vp.Height, 0 };
+	D3DXVec3TransformCoord(&smallRightDown, &smallRightDown, &InvResult);
+
+
 
 	//먼 점
-	D3DXVECTOR3 leftUp(0, 0, 1);
-	D3DXVECTOR3 rightUp(vp.Width, 0, 1);
-	D3DXVECTOR3 leftDown(0, vp.Height, 1);
-	D3DXVECTOR3 rightDown(vp.Width, vp.Height, 1);
+	bigLeftUp = { 0, 0, 1 };
+	D3DXVec3TransformCoord(&bigLeftUp, &bigLeftUp, &InvResult);
+
+	bigRightUp = { (float)vp.Width, 0, 1 };
+	D3DXVec3TransformCoord(&bigRightUp, &bigRightUp, &InvResult);
+
+	bigLeftDown = { 0, (float)vp.Height, 1 };
+	D3DXVec3TransformCoord(&bigLeftDown, &bigLeftDown, &InvResult);
+
+	bigRightDown = { (float)vp.Width, (float)vp.Height, 1 };
+	D3DXVec3TransformCoord(&bigRightDown, &bigRightDown, &InvResult);
+
+
+	vecFCVertex.clear();
+	//front
+	ST_P_VERTEX pV;
+	pV.p = smallLeftDown;
+	vecFCVertex.push_back(pV);
+	pV.p = smallLeftUp;
+	vecFCVertex.push_back(pV);
+	pV.p = smallRightUp;
+	vecFCVertex.push_back(pV);
+
+	pV.p = smallLeftDown;
+	vecFCVertex.push_back(pV);
+	pV.p = smallRightUp;
+	vecFCVertex.push_back(pV);
+	pV.p = smallRightDown;
+	vecFCVertex.push_back(pV);
+
+
+	//right
+	pV.p = smallRightDown;
+	vecFCVertex.push_back(pV);
+	pV.p = smallRightUp;
+	vecFCVertex.push_back(pV);
+	pV.p = bigRightUp;
+	vecFCVertex.push_back(pV);
+
+	pV.p = smallRightDown;
+	vecFCVertex.push_back(pV);
+	pV.p = bigRightUp;
+	vecFCVertex.push_back(pV);
+	pV.p = bigRightDown;
+	vecFCVertex.push_back(pV);
+
+
+	//back
+	pV.p = bigRightDown;
+	vecFCVertex.push_back(pV);
+	pV.p = bigRightUp;
+	vecFCVertex.push_back(pV);
+	pV.p = bigLeftUp;
+	vecFCVertex.push_back(pV);
+
+	pV.p = bigRightDown;
+	vecFCVertex.push_back(pV);
+	pV.p = bigLeftUp;
+	vecFCVertex.push_back(pV);
+	pV.p = bigLeftDown;
+	vecFCVertex.push_back(pV);
+
+	//left
+	pV.p = bigLeftDown;
+	vecFCVertex.push_back(pV);
+	pV.p = bigLeftUp;
+	vecFCVertex.push_back(pV);
+	pV.p = smallLeftUp;
+	vecFCVertex.push_back(pV);
+
+	pV.p = bigLeftDown;
+	vecFCVertex.push_back(pV);
+	pV.p = smallLeftUp;
+	vecFCVertex.push_back(pV);
+	pV.p = smallLeftDown;
+	vecFCVertex.push_back(pV);
+
+	//up
+	pV.p = smallLeftUp;
+	vecFCVertex.push_back(pV);
+	pV.p = bigLeftUp;
+	vecFCVertex.push_back(pV);
+	pV.p = bigRightUp;
+	vecFCVertex.push_back(pV);
+
+	pV.p = smallLeftUp;
+	vecFCVertex.push_back(pV);
+	pV.p = bigRightUp;
+	vecFCVertex.push_back(pV);
+	pV.p = smallRightUp;
+	vecFCVertex.push_back(pV);
+
+	//down
+	pV.p = bigLeftDown;
+	vecFCVertex.push_back(pV);
+	pV.p = smallLeftDown;
+	vecFCVertex.push_back(pV);
+	pV.p = smallRightDown;
+	vecFCVertex.push_back(pV);
+
+	pV.p = bigLeftDown;
+	vecFCVertex.push_back(pV);
+	pV.p = smallRightDown;
+	vecFCVertex.push_back(pV);
+	pV.p = bigRightDown;
+	vecFCVertex.push_back(pV);
 
 
 
 
-	//프로젝션 역행렬 곱하기
-		/*
-		D3DXMATRIXA16 matPrijection, matInvProjection;
-		g_pD3DDevice->GetTransform(D3DTS_PROJECTION, &matPrijection); // 프로젝션 행렬 가져오는 방법
-		D3DXMatrixInverse(matPrijection, 0, &matInvProjection);
-		*/
-
-	//뷰의 역행렬 곱하기
-		/*
-		D3DXMATRIXA16 matView, matInvView;
-		g_pD3DDevice->GetTransform(D3DTS_VIEW, &matView);
-		D3DXMatrixInverse(&matInvView, 0, &matView);
-		*/
-	//=> 월드 상의 좌표 8개의 좌표가 나온다
-
+	
+	
+	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, false);
+	D3DXMATRIXA16 matWorld, matS;
+	D3DXMatrixIdentity(&matWorld);
+	D3DXMatrixIdentity(&matS);
+	D3DXMatrixScaling(&matS, 0.01f, 0.01f, 0.01f);
+	matWorld = matS;
+	g_pD3DDevice->SetTransform(D3DTS_WORLD, &matWorld);
+	g_pD3DDevice->SetFVF(ST_P_VERTEX::FVF);
+	g_pD3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLELIST, 
+		vecFCVertex.size() / 3, 
+		&vecFCVertex[0], 
+		sizeof(ST_P_VERTEX) );
 
 
 }
+D3DXMATRIXA16 cMainGame::InvProjView()
+{
+	//프로젝션 역행렬 곱하기
+	D3DXMATRIXA16 matProjection, matInvProjection;
+	D3DXMatrixIdentity(&matProjection);
+	D3DXMatrixIdentity(&matInvProjection);
+	g_pD3DDevice->GetTransform(D3DTS_PROJECTION, &matProjection); // 프로젝션 행렬 가져오는 방법
+	D3DXMatrixInverse(&matProjection, 0, &matInvProjection);
 
+
+	D3DXMATRIXA16 invProjResult;
+	D3DXMatrixIdentity(&invProjResult);
+
+
+	//뷰의 역행렬 곱하기
+	D3DXMATRIXA16 matView, matInvView, invViewResult;
+	D3DXMatrixIdentity(&matView);
+	D3DXMatrixIdentity(&matInvView);
+	D3DXMatrixIdentity(&invViewResult);
+	g_pD3DDevice->GetTransform(D3DTS_VIEW, &matView);
+	D3DXMatrixInverse(&matInvView, 0, &matView);
+
+
+	//D3DXVECTOR3 result;
+	//D3DXVec3Unproject(&result, NULL, NULL, &matProjection, &matView, NULL);;
+
+
+	return matInvProjection * matInvView;
+	//=> 월드 상의 좌표 8개의 좌표가 나온다
+}
 /*
 void cMainGame::Draw_Texture()
 {
