@@ -493,30 +493,30 @@ void cMainGame::FrusturnCulling()
 	D3DXVec3TransformCoord(&smallLeftUp, &smallLeftUp, &InvResult);
 
 
-	smallRightUp = { (float)vp.Width, 0, 0 };
+	smallRightUp = D3DXVECTOR3(vp.Width, 0, 0);
 	D3DXVec3TransformCoord(&smallRightUp, &smallRightUp, &InvResult);
 
 
-	smallLeftDown = { 0, (float)vp.Height, 0 };
+	smallLeftDown = D3DXVECTOR3( 0, vp.Height, 0 );
 	D3DXVec3TransformCoord(&smallLeftDown, &smallLeftDown, &InvResult);
 
 
-	smallRightDown = { (float)vp.Width, (float)vp.Height, 0 };
+	smallRightDown = D3DXVECTOR3( vp.Width, vp.Height, 0 );
 	D3DXVec3TransformCoord(&smallRightDown, &smallRightDown, &InvResult);
 
 
 
 	//¸Õ Á¡
-	bigLeftUp = { 0, 0, 1 };
+	bigLeftUp = D3DXVECTOR3( 0, 0, 1 );
 	D3DXVec3TransformCoord(&bigLeftUp, &bigLeftUp, &InvResult);
 
-	bigRightUp = { (float)vp.Width, 0, 1 };
+	bigRightUp = D3DXVECTOR3 (vp.Width, 0, 1 );
 	D3DXVec3TransformCoord(&bigRightUp, &bigRightUp, &InvResult);
 
-	bigLeftDown = { 0, (float)vp.Height, 1 };
+	bigLeftDown = D3DXVECTOR3( 0, vp.Height, 1 );
 	D3DXVec3TransformCoord(&bigLeftDown, &bigLeftDown, &InvResult);
 
-	bigRightDown = { (float)vp.Width, (float)vp.Height, 1 };
+	bigRightDown = D3DXVECTOR3( vp.Width, vp.Height, 1 );
 	D3DXVec3TransformCoord(&bigRightDown, &bigRightDown, &InvResult);
 
 
