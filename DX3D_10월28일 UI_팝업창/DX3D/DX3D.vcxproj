@@ -149,6 +149,7 @@
     <ClInclude Include="cAllocateHierarchy.h" />
     <ClInclude Include="cAseLoader.h" />
     <ClInclude Include="cBody.h" />
+    <ClInclude Include="cButton.h" />
     <ClInclude Include="cCamera.h" />
     <ClInclude Include="cCharacter.h" />
     <ClInclude Include="cCubeMan.h" />
@@ -173,6 +174,7 @@
     <ClInclude Include="cObjectManager.h" />
     <ClInclude Include="cObjLoad.h" />
     <ClInclude Include="cObjMap.h" />
+    <ClInclude Include="cPopup.h" />
     <ClInclude Include="cPyramid.h" />
     <ClInclude Include="cRay.h" />
     <ClInclude Include="cRightArm.h" />
@@ -192,6 +194,7 @@
     <ClCompile Include="cAllocateHierarchy.cpp" />
     <ClCompile Include="cAseLoader.cpp" />
     <ClCompile Include="cBody.cpp" />
+    <ClCompile Include="cButton.cpp" />
     <ClCompile Include="cCamera.cpp" />
     <ClCompile Include="cCharacter.cpp" />
     <ClCompile Include="cCubeMan.cpp" />
@@ -216,6 +219,7 @@
     <ClCompile Include="cObjectManager.cpp" />
     <ClCompile Include="cObjLoad.cpp" />
     <ClCompile Include="cObjMap.cpp" />
+    <ClCompile Include="cPopup.cpp" />
     <ClCompile Include="cPyramid.cpp" />
     <ClCompile Include="cRay.cpp" />
     <ClCompile Include="cRightArm.cpp" />

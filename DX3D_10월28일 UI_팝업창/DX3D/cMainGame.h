@@ -10,6 +10,7 @@ class cMtlTex;
 class cSkinnedMesh;
 class cFrustum;
 class cZealot;
+class cPopup;
 
 
 class cMainGame
@@ -70,6 +71,15 @@ private:
 	LPD3DXSPRITE m_pSprite;
 	D3DXIMAGE_INFO m_stImageInfo;
 	LPDIRECT3DTEXTURE9 m_pTextureUI;
+
+	enum
+	{
+		enum_PopupOff = 0,
+		enum_PopupOn = 1,
+	};
+
+	int popupState;
+	cPopup* m_pPopup;
 
 public:
 	cMainGame();

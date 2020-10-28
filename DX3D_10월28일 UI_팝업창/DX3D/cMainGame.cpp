@@ -18,6 +18,7 @@
 #include "cFrustum.h"
 #include "cZealot.h"
 #include "cOBB.h"
+#include "cPopup.h"
 
 cMainGame::cMainGame()
 	:m_pCubePC(NULL)
@@ -38,8 +39,9 @@ cMainGame::cMainGame()
 	,m_p3DText(NULL)
 	,m_pSprite(NULL)
 	,m_pTextureUI(NULL)
+	,m_pPopup(NULL)
 {
-
+	popupState = 0;
 }
 
 
@@ -54,6 +56,7 @@ cMainGame::~cMainGame()
 	SafeDelete(m_pFrustum);
 	SafeDelete(m_pHoldZealot);
 	SafeDelete(m_pMoveZealot);
+	SafeDelete(m_pPopup);
 
 	//SafeRelease(m_pTexture);
 	SafeRelease(m_pMeshTeapot);
@@ -63,7 +66,7 @@ cMainGame::~cMainGame()
 	SafeRelease(m_p3DText);
 	SafeRelease(m_pSprite);
 	SafeRelease(m_pTextureUI);
-
+	
 
 	for each(auto p in m_vecObjMtlTex)
 		SafeRelease(p);
@@ -154,9 +157,12 @@ void cMainGame::Setup()
 	Setup_OBB();
 
 	
-	Create_Font();
-	Setup_UI();	//UI는 맨 마지막에 넣는게 좋다
+	//Create_Font();
 
+	//Setup_UI();	//UI는 맨 마지막에 넣는게 좋다
+
+	m_pPopup = new cPopup;
+	m_pPopup->Setup("UI","panel-info.png");
 
 	g_pD3DDevice->SetRenderState(D3DRS_LIGHTING, true);
 
@@ -196,6 +202,8 @@ void cMainGame::Update()
 	if (m_pMoveZealot)
 		m_pMoveZealot->Update(m_pMap);
 
+	if (m_pPopup)
+		m_pPopup->Update();
 
 }
 
@@ -241,8 +249,13 @@ void cMainGame::Render()
 	//Frustum_Render();
 	OBB_Render();
 
-	Text_Render();
-	UI_Render();
+	//Text_Render();
+	//UI_Render();
+	if (popupState == enum_PopupOn) 
+	{
+		if (m_pPopup)
+			m_pPopup->Render();
+	}
 
 	g_pD3DDevice->EndScene();
 	g_pD3DDevice->Present(NULL, NULL, NULL, NULL);
@@ -254,16 +267,44 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	if (m_pCamera)
 		m_pCamera->WndProc(hWnd, message, wParam, lParam);
 
+	if(m_pPopup)
+		m_pPopup->WndProc(hWnd, message, wParam, lParam);
+
 	switch (message) 
 	{
+	case WM_KEYDOWN:
+		switch (wParam)
+		{
+		case VK_TAB:
+			popupState = !popupState;
+			break;
+
+		default:
+			break;
+		}
 	case WM_LBUTTONDOWN:
 		{
+		
 		cRay r = cRay::RayAtWorldSpace(LOWORD(lParam), HIWORD(lParam));
 		for (int i = 0; i < m_vecSphere.size(); i++)
 		{
 			m_vecSphere[i].isPicked = r.IsPicked(&m_vecSphere[i]);
 		}
 
+		}
+		
+		break;
+	case WM_LBUTTONUP:
+		{
+		int x = LOWORD(lParam);
+		int y = HIWORD(lParam);
+			if (398 <= x && x <= 445) 
+			{
+				if (86 <= y && y <= 137) 
+				{
+					popupState = enum_PopupOff;
+				}
+			}
 		}
 		break;
 
@@ -684,6 +725,7 @@ void cMainGame::Setup_UI()
 
 	//m_pTextureUI = g_pTextureManager->GetTexture("UI/김태희.jpg"); ->이렇게 로드하면 안됨
 
+	
 	D3DXCreateTextureFromFileEx(g_pD3DDevice, 
 		L"UI/김태희.jpg",
 		D3DX_DEFAULT_NONPOW2, 
@@ -698,6 +740,7 @@ void cMainGame::Setup_UI()
 		&m_stImageInfo, 
 		NULL, 
 		&m_pTextureUI);
+	
 
 }
 
@@ -707,12 +750,12 @@ void cMainGame::UI_Render()
 
 	RECT rc;
 	//SetRect(&rc, 0, 0, 579, 381);
-	//SetRect(&rc, 0, 0, m_stImageInfo.Width, m_stImageInfo.Height);
-	SetRect(&rc, m_stImageInfo.Width/2, m_stImageInfo.Height/2, m_stImageInfo.Width, m_stImageInfo.Height);	//일부분만 출력
+	SetRect(&rc, 0, 0, m_stImageInfo.Width, m_stImageInfo.Height);
+	//SetRect(&rc, m_stImageInfo.Width/2, m_stImageInfo.Height/2, m_stImageInfo.Width, m_stImageInfo.Height);	//일부분만 출력
 
 	// >>	UI 이동과 회전도 가능하다
 	D3DXMATRIXA16 matT, matS, matR, mat;
-	D3DXMatrixTranslation(&matT, 100, 100, 0);
+	D3DXMatrixTranslation(&matT, 20, 20, 0);
 
 	static float fAngle = 0.0f;
 	//fAngle += 0.1f;
