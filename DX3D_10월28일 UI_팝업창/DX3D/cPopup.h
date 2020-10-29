@@ -17,6 +17,7 @@ protected:
 	LPDIRECT3DTEXTURE9 m_pTextureUI;
 
 	LPD3DXFONT m_pFont;
+	string sText;
 
 	cButton* m_pButton;
 	cButton* m_pButton_Yes;	//yes버튼이면서 노멀상태
@@ -27,7 +28,7 @@ protected:
 
 	bool m_isLButtonDown;
 	POINT m_ptPrevMouse;
-
+	POINT m_click;
 
 public:
 	cPopup();
@@ -42,5 +43,6 @@ public:
 	void Text_Render();
 
 	void WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+	POINT GetptPrevMouse();
 };
 

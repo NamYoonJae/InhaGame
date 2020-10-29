@@ -78,8 +78,9 @@ private:
 		enum_PopupOn = 1,
 	};
 
-	int popupState;
+	int m_PopupState;
 	cPopup* m_pPopup;
+
 
 public:
 	cMainGame();

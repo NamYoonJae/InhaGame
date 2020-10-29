@@ -2,6 +2,8 @@
 #include "cPopup.h"
 #include "cButton.h"
 
+extern bool m_CameraOnOff;
+
 cPopup::cPopup()
 	:m_pFont(NULL)
 	,m_pButton(NULL)
@@ -28,6 +30,8 @@ cPopup::~cPopup()
 
 void cPopup::Setup(char* szFolder, char* szFileName)
 {
+	m_ptPrevMouse.x = 0;
+	m_ptPrevMouse.y = 0;
 	D3DXCreateSprite(g_pD3DDevice, &m_pSprite);
 
 	string sFullPath(szFolder);
@@ -47,8 +51,9 @@ void cPopup::Setup(char* szFolder, char* szFileName)
 		&m_stImageInfo,
 		NULL,
 		&m_pTextureUI);
-
+	
 	FontCreate();
+
 	m_pButton = new cButton;
 	m_pButton->Setup("UI", "btn-main-menu.png");
 
@@ -88,8 +93,8 @@ void cPopup::Render()
 	D3DXMatrixIdentity(&matS);
 	D3DXMatrixIdentity(&matWorld);
 
-	D3DXMatrixTranslation(&matT, 20, 20, 0);
-	m_pSprite->Draw(m_pTextureUI, &rc, &D3DXVECTOR3(0, 0, 0), &D3DXVECTOR3(0, 0, 0), D3DCOLOR_ARGB(255, 255, 255, 255));
+	//D3DXMatrixTranslation(&matT, 100, 100, 0);
+	m_pSprite->Draw(m_pTextureUI, &rc, &D3DXVECTOR3(0, 0, 0), &D3DXVECTOR3(m_ptPrevMouse.x, m_ptPrevMouse.y, 0), D3DCOLOR_ARGB(255, 255, 255, 255));
 
 	matWorld = matS * matT;
 	
@@ -97,7 +102,7 @@ void cPopup::Render()
 
 	
 	if (m_pButton)
-		m_pButton->Render(390, 80);
+		m_pButton->Render(m_ptPrevMouse.x + 390, m_ptPrevMouse.y + 80);
 
 
 
@@ -105,15 +110,15 @@ void cPopup::Render()
 	{
 		if (m_pButton_Yes->GetButtonState() == enum_ButtonOff)
 		{
-			m_pButton_Yes->Render(140, 300);
+			m_pButton_Yes->Render(m_ptPrevMouse.x + 140, m_ptPrevMouse.y + 300);
 		}
 		else if (m_pButton_Yes->GetButtonState() == enum_ButtonOn)
 		{
-			m_pButton_On->Render(140, 300);
+			m_pButton_On->Render(m_ptPrevMouse.x + 140, m_ptPrevMouse.y + 300);
 		}
 		else if (m_pButton_Yes->GetButtonState() == enum_ButtonHold)
 		{
-			m_pButton_Hold->Render(140, 300);
+			m_pButton_Hold->Render(m_ptPrevMouse.x + 140, m_ptPrevMouse.y + 300);
 		}
 	}
 
@@ -122,15 +127,15 @@ void cPopup::Render()
 	{
 		if (m_pButton_No->GetButtonState() == enum_ButtonOff)
 		{
-			m_pButton_No->Render(140, 370);
+			m_pButton_No->Render(m_ptPrevMouse.x + 140, m_ptPrevMouse.y + 370);
 		}
 		else if (m_pButton_No->GetButtonState() == enum_ButtonOn)
 		{
-			m_pButton_On->Render(140, 370);
+			m_pButton_On->Render(m_ptPrevMouse.x + 140, m_ptPrevMouse.y + 370);
 		}
 		else if (m_pButton_No->GetButtonState() == enum_ButtonHold)
 		{
-			m_pButton_Hold->Render(140, 370);
+			m_pButton_Hold->Render(m_ptPrevMouse.x + 140, m_ptPrevMouse.y + 370);
 		}
 	}
 		
@@ -143,6 +148,8 @@ void cPopup::Render()
 
 void cPopup::FontCreate()
 {
+	sText = "인하대 후문에 COVID19 \n 환자 발생.. 도망쳐~~";
+
 	D3DXFONT_DESC fd;
 	ZeroMemory(&fd, sizeof(D3DXFONT_DESC));
 	fd.Height = 50;
@@ -161,9 +168,8 @@ void cPopup::FontCreate()
 
 void cPopup::Text_Render()
 {
-	string sText("인하대 후문에 COVID19 \n 환자 발생.. 도망쳐~~");
 	RECT rc;
-	SetRect(&rc, 120, 180, 301, 200);
+	SetRect(&rc, m_ptPrevMouse.x + 120, m_ptPrevMouse.y + 180, m_ptPrevMouse.x + 301, m_ptPrevMouse.y + 200);
 
 	LPD3DXFONT pFont = g_pFontManager->GetFont(cFontManager::E_DEFAULT);	//E_QUEST일 때와 E_DEFAULT일 때
 	pFont->DrawTextA(NULL,
@@ -186,9 +192,9 @@ void cPopup::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			ptCurMouse.x = LOWORD(lParam);
 			ptCurMouse.y = HIWORD(lParam);
 
-			if (153 <= ptCurMouse.x && ptCurMouse.x <= 385)
+			if (m_ptPrevMouse.x + 153 <= ptCurMouse.x && ptCurMouse.x <= m_ptPrevMouse.x +385)
 			{
-				if (312 <= ptCurMouse.y && ptCurMouse.y <= 348)
+				if (m_ptPrevMouse.y + 312 <= ptCurMouse.y && ptCurMouse.y <= m_ptPrevMouse.y + 348)
 				{
 					m_pButton_Yes->ButtonStateChange(enum_ButtonOn);
 				}
@@ -204,9 +210,9 @@ void cPopup::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 			}
 
-			if (153 <= ptCurMouse.x && ptCurMouse.x <= 385)
+			if (m_ptPrevMouse.x + 153 <= ptCurMouse.x && ptCurMouse.x <= m_ptPrevMouse.x + 385)
 			{
-				if (384 <= ptCurMouse.y && ptCurMouse.y <= 422)
+				if (m_ptPrevMouse.y + 384 <= ptCurMouse.y && ptCurMouse.y <= m_ptPrevMouse.y + 422)
 				{
 					m_pButton_No->ButtonStateChange(enum_ButtonOn);
 				}
@@ -224,39 +230,63 @@ void cPopup::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			}
 
 			
-			//
-			float moveX = ptCurMouse.x - m_ptPrevMouse.x;
-			float moveY = ptCurMouse.y - m_ptPrevMouse.y;
+			if (m_isLButtonDown) 
+			{
+				
+				if (m_ptPrevMouse.x <= ptCurMouse.x && ptCurMouse.x <= m_ptPrevMouse.x + 490)
+				{
+					if (m_ptPrevMouse.y <= ptCurMouse.y && ptCurMouse.y <= m_ptPrevMouse.y + 480)
+					{
+						m_CameraOnOff = false;
+						//누른 영역
+						float moveX = (float)ptCurMouse.x - m_click.x;
+						float moveY = (float)ptCurMouse.y - m_click.y;
 
-			m_ptPrevMouse.x += moveX;
-			m_ptPrevMouse.y += moveY;
+						m_ptPrevMouse.x += moveX ;
+						m_ptPrevMouse.y += moveY ;
+						m_click.x = (float)ptCurMouse.x;
+						m_click.y = (float)ptCurMouse.y;
+					}
+					else
+					{
+						m_CameraOnOff = true;
+					}
+				}
+				else
+				{
+					m_CameraOnOff = true;
+				}
 
+			}
+			
 
 
 			break;
 		}
 
 		case WM_LBUTTONDOWN:
-			m_ptPrevMouse.x = LOWORD(lParam);
-			m_ptPrevMouse.y = HIWORD(lParam);
+			x = LOWORD(lParam);
+			y = HIWORD(lParam);
 			m_isLButtonDown = true;
-
-			cout << "x : " << m_ptPrevMouse.x << endl;
-			cout << "y : " << m_ptPrevMouse.y << endl;
+			m_click.x = x;
+			m_click.y = y;
+			cout << "x : " << x << endl;
+			cout << "y : " << y << endl;
 
 			
 
-			if (153 <= m_ptPrevMouse.x && m_ptPrevMouse.x <= 385)
+			if (m_ptPrevMouse.x + 153 <=x && x <= m_ptPrevMouse.x + 385)
 			{
-				if (312 <= m_ptPrevMouse.y && m_ptPrevMouse.y <= 348)
+				if (m_ptPrevMouse.y + 312 <= y && y <= m_ptPrevMouse.y + 348)
 				{
 					m_pButton_Yes->ButtonStateChange(enum_ButtonHold);
+
 				}
 			}
 
-			if (153 <= m_ptPrevMouse.x && m_ptPrevMouse.x <= 385)
+			if (m_ptPrevMouse.x + 153 <= x && x <= m_ptPrevMouse.x + 385)
 			{
-				if (384 <= m_ptPrevMouse.y && m_ptPrevMouse.y <= 422)
+				if (m_ptPrevMouse.y + 384 <= y && y <= m_ptPrevMouse.y + 422)
 				{
 					m_pButton_No->ButtonStateChange(enum_ButtonHold);
 				}
@@ -271,22 +301,28 @@ void cPopup::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 			m_isLButtonDown = false;
 
-			if (153 <= x && x <= 385)
+			if (m_ptPrevMouse.x + 153 <= x && x <= m_ptPrevMouse.x + 385)
 			{
-				if (312 <= y && y <= 348)
+				if (m_ptPrevMouse.y + 312 <= y && y <= m_ptPrevMouse.y + 348)
 				{
 					m_pButton_Yes->ButtonStateChange(enum_ButtonOn);
-
+					sText = "          Yes";
 				}
 			}
 
-			if (153 <= x && x <= 385)
+			if (m_ptPrevMouse.x + 153 <= x && x <= m_ptPrevMouse.x + 385)
 			{
-				if (384 <= y && y <= 422)
+				if (m_ptPrevMouse.y + 384 <= y && y <= m_ptPrevMouse.y + 422)
 				{
 					m_pButton_No->ButtonStateChange(enum_ButtonOn);
+					sText = "          No";
 				}
 			}
 			break;
 		}
+}
+
+POINT cPopup::GetptPrevMouse()
+{
+	return m_ptPrevMouse;
 }

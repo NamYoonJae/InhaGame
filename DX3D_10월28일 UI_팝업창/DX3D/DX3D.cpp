@@ -14,6 +14,7 @@
 #endif
 
 // 전역 변수:
+bool m_CameraOnOff;
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
@@ -160,6 +161,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		g_pMainGame->WndProc(hWnd, message, wParam, lParam);
     switch (message)
     {
+    case WM_CREATE:
+        m_CameraOnOff = true;
+        break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);

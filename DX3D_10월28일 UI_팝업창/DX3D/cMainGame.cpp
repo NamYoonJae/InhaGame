@@ -41,7 +41,7 @@ cMainGame::cMainGame()
 	,m_pTextureUI(NULL)
 	,m_pPopup(NULL)
 {
-	popupState = 0;
+	m_PopupState = 0;
 }
 
 
@@ -251,7 +251,7 @@ void cMainGame::Render()
 
 	//Text_Render();
 	//UI_Render();
-	if (popupState == enum_PopupOn) 
+	if (m_PopupState == enum_PopupOn)
 	{
 		if (m_pPopup)
 			m_pPopup->Render();
@@ -264,11 +264,15 @@ void cMainGame::Render()
 
 void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+
 	if (m_pCamera)
 		m_pCamera->WndProc(hWnd, message, wParam, lParam);
 
-	if(m_pPopup)
-		m_pPopup->WndProc(hWnd, message, wParam, lParam);
+	if (m_PopupState == enum_PopupOn) 
+	{
+		if (m_pPopup)
+			m_pPopup->WndProc(hWnd, message, wParam, lParam);
+	}
 
 	switch (message) 
 	{
@@ -276,7 +280,7 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		switch (wParam)
 		{
 		case VK_TAB:
-			popupState = !popupState;
+			m_PopupState = !m_PopupState;
 			break;
 
 		default:
@@ -298,11 +302,11 @@ void cMainGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		{
 		int x = LOWORD(lParam);
 		int y = HIWORD(lParam);
-			if (398 <= x && x <= 445) 
+			if (m_pPopup->GetptPrevMouse().x + 398 <= x && x <= m_pPopup->GetptPrevMouse().x + 445)
 			{
-				if (86 <= y && y <= 137) 
+				if (m_pPopup->GetptPrevMouse().y + 86 <= y && y <= m_pPopup->GetptPrevMouse().y +137)
 				{
-					popupState = enum_PopupOff;
+					m_PopupState = enum_PopupOff;
 				}
 			}
 		}

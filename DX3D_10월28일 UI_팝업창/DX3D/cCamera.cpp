@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "cCamera.h"
 
+extern bool m_CameraOnOff;
 
 cCamera::cCamera()
 	:m_vEye(0, 0, -5)
@@ -72,23 +73,27 @@ void cCamera::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 
 	case WM_MOUSEMOVE:
-		if (m_isLButtonDown) 
+		if (m_CameraOnOff == true) 
 		{
-			POINT ptCurMouse;
-			ptCurMouse.x = LOWORD(lParam);
-			ptCurMouse.y = HIWORD(lParam);
-			float fDeltaX = (float)ptCurMouse.x - m_ptPrevMouse.x;
-			float fDeltaY = (float)ptCurMouse.y - m_ptPrevMouse.y;
-			m_vCamRotAngle.y += (fDeltaX / 100.0f); 
-			m_vCamRotAngle.x += (fDeltaY / 100.0f);
+			if (m_isLButtonDown)
+			{
+				POINT ptCurMouse;
+				ptCurMouse.x = LOWORD(lParam);
+				ptCurMouse.y = HIWORD(lParam);
+				float fDeltaX = (float)ptCurMouse.x - m_ptPrevMouse.x;
+				float fDeltaY = (float)ptCurMouse.y - m_ptPrevMouse.y;
+				m_vCamRotAngle.y += (fDeltaX / 100.0f);
+				m_vCamRotAngle.x += (fDeltaY / 100.0f);
 
-			if (m_vCamRotAngle.x < -D3DX_PI / 2.0f + 0.0001f)
-				m_vCamRotAngle.x = -D3DX_PI / 2.0f + 0.0001f;
-			if (m_vCamRotAngle.x > D3DX_PI / 2.0f - 0.0001f)
-				m_vCamRotAngle.x = D3DX_PI / 2.0f - 0.0001f;
+				if (m_vCamRotAngle.x < -D3DX_PI / 2.0f + 0.0001f)
+					m_vCamRotAngle.x = -D3DX_PI / 2.0f + 0.0001f;
+				if (m_vCamRotAngle.x > D3DX_PI / 2.0f - 0.0001f)
+					m_vCamRotAngle.x = D3DX_PI / 2.0f - 0.0001f;
 
-			m_ptPrevMouse = ptCurMouse;
+				m_ptPrevMouse = ptCurMouse;
+			}
 		}
+		
 		break;
 
 	case WM_MOUSEWHEEL:
