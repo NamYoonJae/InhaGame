@@ -68,7 +68,7 @@ void cButton::Render(float positionX, float positionY)
 	D3DXMatrixIdentity(&matS);
 	D3DXMatrixIdentity(&matWorld);
 
-	D3DXMatrixTranslation(&matT, 20, 20, 0);
+	//D3DXMatrixTranslation(&matT, 20, 20, 0);
 	m_pSprite->Draw(m_pTextureUI, &rc, &D3DXVECTOR3(0, 0, 0), &D3DXVECTOR3(positionX, positionY, 0), D3DCOLOR_ARGB(255, 255, 255, 255));
 
 	matWorld = matS * matT;
