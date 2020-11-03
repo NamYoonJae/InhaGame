@@ -627,7 +627,11 @@ void cMainGame::SkinnedMesh_Render()
 
 		//gpColorShader->SetValue("gColor", &D3DXVECTOR4(1.0F, 0.5F, 0.0F, 1.0F), sizeof(D3DXCOLOR));
 		D3DXCOLOR color(1, 1, 0, 1);
-		m_pShader->SetValue("gColor", &color, sizeof(D3DXCOLOR));
+		//m_pShader->SetValue("gColor", &color, sizeof(D3DXCOLOR));
+
+		m_pShader->SetVector("gLightColor", xxxxx);
+		m_pShader->SetTexture("DiffuseMap_Tex", "xxxx");
+		m_pShader->SetTexture("SpecularMap_Tex", "xxxx");
 
 
 		UINT numPasses = 0;
