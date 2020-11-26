@@ -109,8 +109,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[0] * absCos[2][0] +
 			pOBB1->m_fAxisHalfLen[2] * absCos[0][0];
 
-		r1 = pOBB1->m_fAxisHalfLen[1] * absCos[1][2] +
-			pOBB1->m_fAxisHalfLen[2] * absCos[1][1];
+		r1 = pOBB2->m_fAxisHalfLen[1] * absCos[1][2] +
+			pOBB2->m_fAxisHalfLen[2] * absCos[1][1];
 		if (r > r0 + r1) return false;
 
 
@@ -118,8 +118,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[0] * absCos[2][1] +
 			pOBB1->m_fAxisHalfLen[2] * absCos[0][1];
 
-		r1 = pOBB1->m_fAxisHalfLen[0] * absCos[1][2] +
-			pOBB1->m_fAxisHalfLen[2] * absCos[1][0];
+		r1 = pOBB2->m_fAxisHalfLen[0] * absCos[1][2] +
+			pOBB2->m_fAxisHalfLen[2] * absCos[1][0];
 		if (r > r0 + r1) return false;
 
 
@@ -127,8 +127,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[0] * absCos[2][2] +
 			pOBB1->m_fAxisHalfLen[2] * absCos[0][2];
 
-		r1 = pOBB1->m_fAxisHalfLen[0] * absCos[1][1] +
-			pOBB1->m_fAxisHalfLen[1] * absCos[1][0];
+		r1 = pOBB2->m_fAxisHalfLen[0] * absCos[1][1] +
+			pOBB2->m_fAxisHalfLen[1] * absCos[1][0];
 		if (r > r0 + r1) return false;
 
 		//======================================================
@@ -137,8 +137,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[0] * absCos[1][0] +
 			pOBB1->m_fAxisHalfLen[1] * absCos[0][0];
 
-		r1 = pOBB1->m_fAxisHalfLen[1] * absCos[2][2] +
-			pOBB1->m_fAxisHalfLen[2] * absCos[2][1];
+		r1 = pOBB2->m_fAxisHalfLen[1] * absCos[2][2] +
+			pOBB2->m_fAxisHalfLen[2] * absCos[2][1];
 		if (r > r0 + r1) return false;
 
 
@@ -146,8 +146,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[0] * absCos[1][1] +
 			pOBB1->m_fAxisHalfLen[1] * absCos[0][1];
 
-		r1 = pOBB1->m_fAxisHalfLen[0] * absCos[2][2] +
-			pOBB1->m_fAxisHalfLen[2] * absCos[2][0];
+		r1 = pOBB2->m_fAxisHalfLen[0] * absCos[2][2] +
+			pOBB2->m_fAxisHalfLen[2] * absCos[2][0];
 		if (r > r0 + r1) return false;
 
 
@@ -155,8 +155,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[0] * absCos[1][2] +
 			pOBB1->m_fAxisHalfLen[1] * absCos[0][2];
 
-		r1 = pOBB1->m_fAxisHalfLen[0] * absCos[2][1] +
-			pOBB1->m_fAxisHalfLen[1] * absCos[2][0];
+		r1 = pOBB2->m_fAxisHalfLen[0] * absCos[2][1] +
+			pOBB2->m_fAxisHalfLen[1] * absCos[2][0];
 		if (r > r0 + r1) return false;
 
 		//======================================================
@@ -165,8 +165,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[1] * absCos[2][0] +
 			pOBB1->m_fAxisHalfLen[2] * absCos[1][0];
 
-		r1 = pOBB1->m_fAxisHalfLen[1] * absCos[0][2] +
-			pOBB1->m_fAxisHalfLen[2] * absCos[0][1];
+		r1 = pOBB2->m_fAxisHalfLen[1] * absCos[0][2] +
+			pOBB2->m_fAxisHalfLen[2] * absCos[0][1];
 		if (r > r0 + r1) return false;
 
 
@@ -174,8 +174,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[1] * absCos[2][1] +
 			pOBB1->m_fAxisHalfLen[2] * absCos[1][1];
 
-		r1 = pOBB1->m_fAxisHalfLen[0] * absCos[0][2] +
-			pOBB1->m_fAxisHalfLen[2] * absCos[0][0];
+		r1 = pOBB2->m_fAxisHalfLen[0] * absCos[0][2] +
+			pOBB2->m_fAxisHalfLen[2] * absCos[0][0];
 		if (r > r0 + r1) return false;
 
 
@@ -183,8 +183,8 @@ bool cOBB::IsCollision(cOBB * pOBB1, cOBB * pOBB2)
 		r0 = pOBB1->m_fAxisHalfLen[1] * absCos[2][2] +
 			pOBB1->m_fAxisHalfLen[2] * absCos[1][2];
 
-		r1 = pOBB1->m_fAxisHalfLen[0] * absCos[0][1] +
-			pOBB1->m_fAxisHalfLen[1] * absCos[0][0];
+		r1 = pOBB2->m_fAxisHalfLen[0] * absCos[0][1] +
+			pOBB2->m_fAxisHalfLen[1] * absCos[0][0];
 		if (r > r0 + r1) return false;
 
 	}
